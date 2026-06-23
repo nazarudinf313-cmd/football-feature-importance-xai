@@ -29,16 +29,23 @@ ATTRIBUTE_INFO = {
 BASE_ATTRS = list(ATTRIBUTE_INFO.keys())
 
 
+import os
+
 @st.cache_resource
 def load_model():
     try:
-        bundle = joblib.load("model.pkl")
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        model_path = os.path.join(current_dir, "model.pkl")
+
+        st.write("Model Path:", model_path)
+
+        bundle = joblib.load(model_path)
+
         return bundle["model"], bundle["features"]
 
     except Exception as e:
         st.error(f"ERROR LOADING MODEL: {e}")
         return None, None
-
 
 def main():
     st.title("⚽ Football Match Result Predictor")
