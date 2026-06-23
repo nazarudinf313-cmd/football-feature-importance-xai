@@ -46,9 +46,7 @@ BASE_ATTRS = list(ATTRIBUTE_INFO.keys())
 @st.cache_resource
 def load_model():
     try:
-        bundle = joblib.load(
-    "github-repo-football-xai/github-repo/model.pkl"
-)
+        bundle = joblib.load("model.pkl")
         return bundle["model"], bundle["features"]
 
     except Exception as e:
