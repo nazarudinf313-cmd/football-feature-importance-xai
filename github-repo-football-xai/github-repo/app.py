@@ -16,6 +16,15 @@ import shap
 import matplotlib.pyplot as plt
 import os
 
+st.write("Current Directory:", os.getcwd())
+st.write("Root Files:", os.listdir())
+
+if os.path.exists("github-repo-football-xai"):
+    st.write(
+        "Subfolder Files:",
+        os.listdir("github-repo-football-xai")
+    )
+
 st.write(os.listdir("github-repo-football-xai"))
 st.write("Current Directory:", os.getcwd())
 st.write("Files:", os.listdir())
