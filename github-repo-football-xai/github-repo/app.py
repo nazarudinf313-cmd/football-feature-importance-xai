@@ -43,7 +43,9 @@ def load_model():
     try:
         bundle = joblib.load("model.pkl")
         return bundle["model"], bundle["features"]
-    except FileNotFoundError:
+
+    except Exception as e:
+        st.error(f"ERROR LOADING MODEL: {e}")
         return None, None
 
 
